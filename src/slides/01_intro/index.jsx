@@ -1,9 +1,9 @@
 import React from 'react';
 import { Slide, Heading, Image, Text, Layout } from 'spectacle';
-import preloader from "spectacle/lib/utils/preloader";
+import preloader from 'spectacle/lib/utils/preloader';
 import styled, { keyframes } from 'styled-components';
 
-import WasmLogo from './assets/wasm-ferris.png';
+import WasmLogo from './assets/webassembly.png';
 import Wave from './assets/wave.png';
 
 preloader({
@@ -11,17 +11,7 @@ preloader({
   Wave
 });
 
-const rotate = keyframes`
-  from {
-    transform: rotate(15deg);
-  }
-
-  to {
-    transform: rotate(-15deg);
-  }
-`;
-
-const slide = keyframes`
+const scrollAnimation = keyframes`
   from {
     transform: translate(0, 0);
   }
@@ -31,8 +21,19 @@ const slide = keyframes`
   }
 `;
 
+const glowingAnimation = keyframes`
+  from {
+    box-shadow: 0 0 30px #654ff0; 
+  }
+  
+  to {
+    box-shadow: 0 0 220px #654ff0;
+  }
+`;
+
+
 const StyledLogo = styled(Image)`
-  animation: ${rotate} 2s ease 0s alternate infinite;
+  animation: ${glowingAnimation} 5s ease infinite alternate;
 `;
 
 const StyledWave = styled.div`
@@ -46,13 +47,13 @@ const StyledWave = styled.div`
   opacity: ${props => props.opacity};
   background-image: url(${Wave});
   
-  animation: ${slide} ${props => props.speed} ease infinite ${props => props.direction};
+  animation: ${scrollAnimation} ${props => props.speed} ease infinite ${props => props.direction};
 `;
 
 const SplashScreen = () => (
   <Slide bgColor='primary'>
     <Heading textColor='shade-1' bold fit>Web Assembly</Heading>
-    <StyledLogo alt='wasm' src={WasmLogo} width={600} padding='3rem' />
+    <StyledLogo id='logo' src={WasmLogo} width='40%' />
     <StyledWave speed='20s' opacity={0.5} bottom='40px' direction='alternate' />
     <StyledWave speed='15s' opacity={1} bottom={0} direction='alternate-reverse' />
   </Slide>
@@ -71,7 +72,6 @@ const Hello = () => (
     </Layout>
   </Slide>
 );
-
 
 export default [
   SplashScreen,

@@ -1,7 +1,0 @@
-/* We create an arrow function */
-const main = () => {
-    console.log('hello world!');
-};
-
-/* Then we simply call the function */
-main();

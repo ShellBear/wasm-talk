@@ -1,3 +1,4 @@
+import 'normalize.css';
 // Import React
 import React from 'react';
 // Import Spectacle Core tags
@@ -8,7 +9,6 @@ import createTheme from 'spectacle/lib/themes/default';
 import Slides from './slides';
 
 // Require CSS
-require('normalize.css');
 
 const theme = createTheme(
   {
