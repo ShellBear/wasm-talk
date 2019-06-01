@@ -1,61 +1,29 @@
 import React from 'react';
-import { Slide, Heading, Image, Text, Layout } from 'spectacle';
+import { Slide, Heading, Text, Layout } from 'spectacle';
 import preloader from 'spectacle/lib/utils/preloader';
-import styled, { keyframes } from 'styled-components';
 
-import WasmLogo from './assets/webassembly.png';
-import Wave from './assets/wave.png';
+import Wave from '../../components/Wave';
+import Particle from '../../components/Particle';
+
+import WaveImg from './assets/wave.png';
+import CubeImg from './assets/cube.png';
 
 preloader({
-  WasmLogo,
-  Wave
+  WaveImg,
+  CubeImg
 });
 
-const scrollAnimation = keyframes`
-  from {
-    transform: translate(0, 0);
-  }
-  
-  to {
-    transform: translate(-33.33%, 0);
-  }
-`;
-
-const glowingAnimation = keyframes`
-  from {
-    box-shadow: 0 0 30px #654ff0; 
-  }
-  
-  to {
-    box-shadow: 0 0 220px #654ff0;
-  }
-`;
-
-
-const StyledLogo = styled(Image)`
-  animation: ${glowingAnimation} 5s ease infinite alternate;
-`;
-
-const StyledWave = styled.div`
-  will-change: transform;
-  width: 200%;
-  height: 126px;
-  color: red;
-  left: 0;
-  bottom: ${props => props.bottom};
-  position: absolute;
-  opacity: ${props => props.opacity};
-  background-image: url(${Wave});
-  
-  animation: ${scrollAnimation} ${props => props.speed} ease infinite ${props => props.direction};
-`;
-
 const SplashScreen = () => (
-  <Slide bgColor='primary'>
+  <Slide bgColor='primary' style={{zIndex: 1}}>
     <Heading textColor='shade-1' bold fit>Web Assembly</Heading>
-    <StyledLogo id='logo' src={WasmLogo} width='40%' />
-    <StyledWave speed='20s' opacity={0.5} bottom='40px' direction='alternate' />
-    <StyledWave speed='15s' opacity={1} bottom={0} direction='alternate-reverse' />
+    <Layout>
+      <Particle src={CubeImg} width='7%' top='90%' speed='20s' />
+      <Particle src={CubeImg} width='2%' top='10%' left=' 40%' speed='10s' />
+      <Particle src={CubeImg} width='4%' top='40%' speed='50s' />
+      <Particle src={CubeImg} width='10%' top='40%' left='70%' speed='140s' />
+    </Layout>
+    <Wave src={WaveImg} speed='20s' opacity={0.5} bottom='40px' direction='alternate'/>
+    <Wave src={WaveImg} speed='15s' opacity={1} bottom={0} direction='alternate-reverse'/>
   </Slide>
 );
 

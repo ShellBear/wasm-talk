@@ -1,14 +1,9 @@
 import 'normalize.css';
-// Import React
 import React from 'react';
-// Import Spectacle Core tags
 import { Deck } from 'spectacle';
 
-// Import theme
 import createTheme from 'spectacle/lib/themes/default';
 import Slides from './slides';
-
-// Require CSS
 
 const theme = createTheme(
   {
@@ -22,8 +17,11 @@ const theme = createTheme(
     'shade-2': '#9595AB',
     'shade-3': '#65657A',
     'shade-4': '#39394C',
+    'shade-5': '#342E45',
+    'blue': '#6E87FF',
     'green': '#5BECC0',
-    'yellow': '#FFF7D6'
+    'yellow': '#FFF7D6',
+    'pink': '#EFB6D7'
   },
   {
     'primary': 'Montserrat',
@@ -39,6 +37,7 @@ export default class Presentation extends React.Component {
         transitionDuration={500}
         theme={theme}
         progress="bar"
+        style={{}}
       >
         { Slides }
       </Deck>

@@ -1,9 +1,0 @@
->vim hello.c
-%{vim}%
->ls
-hello.c
->emcc hello.c -s WASM=1 -o hello.html
->ls
-hello.c  hello.html  hello.js  hello.wasm
->file hello.wasm
-hello.wasm: WebAssembly (wasm) binary module version 0x1 (MVP)

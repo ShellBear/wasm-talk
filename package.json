@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "babel-loader": "^8.0.6",
+    "bloomer": "^0.6.5",
+    "bulma": "^0.7.5",
     "prismjs": "^1.16.0",
     "prop-types": "latest",
     "react": "^16.8.6",

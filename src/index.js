@@ -1,4 +1,5 @@
 import 'react-hot-loader/patch';
+import 'bulma/css/bulma.css';
 import Prism from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import React from 'react';

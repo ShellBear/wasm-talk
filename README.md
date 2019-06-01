@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+    <img width="500" height="350" src="media/webassembly.png" alt="WebAssembly">
+    <br>
+    <br>
+    <b>A talk I made with <a href="https://github.com/byFuuRy">@byFuuRy</a> about WebAssembly!</b>
+</div>
 
-## Available Scripts
+<br>
+<br>
 
-In the project directory, you can run:
+## Contents
 
-### `npm start`
+- [Talk](#talk)
+- [Resources](#resources)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Talk
+   <code>wow such empty</code>
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Resources
 
-### `npm test`
+##### Talks
+- [WebAssembly Demystified](https://youtu.be/6Y3W94_8scw)
+- [WebAssembly for Web Developers (Google I/O '19)](https://youtu.be/njt-Qzw0mVY)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Demos
+- [Unity WebGL Player - AngryBots WebGL Demo](https://files.unity3d.com/jonas/AngryBots/)
+- [Qt Examples for WebAssembly](https://www.qt.io/qt-examples-for-webassembly)
 
-### `npm run build`
+#### Tools
+- [WebAssembly/wabt](https://github.com/WebAssembly/wabt)
+- [mbasso/awesome-wasm](https://github.com/mbasso/awesome-wasm)
+- [wasmerio/wasmer](https://github.com/wasmerio/wasmer)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Documentation
+- [WebAssembly - Wikipedia](https://en.wikipedia.org/wiki/WebAssembly)
+- [asm.js](http://asmjs.org/spec/latest/)
+- [Emscripten & asm.js: Approaching native speed in JavaScript](https://kripken.github.io/mloc_emscripten_talk/cppcon.html#/2)
+- [Understanding asm.js](https://www.sitepoint.com/understanding-asm-js/)
+- [WebAssembly/design](https://github.com/WebAssembly/design/blob/master/Semantics.md)
+- [Basics of Memory Access in WebAssembly](https://ariya.io/2019/05/basics-of-memory-access-in-webassembly)
+- [Memory in WebAssembly (and why it's safer than you think)](https://hacks.mozilla.org/2017/07/memory-in-webassembly-and-why-its-safer-than-you-think/)
+- [Introduction - Rust and WebAssembly](https://rustwasm.github.io/book/)
+- [Announcing the fastest WebAssembly runtime for Go: wasmer](https://link.medium.com/t55Vb4Gu8W)
