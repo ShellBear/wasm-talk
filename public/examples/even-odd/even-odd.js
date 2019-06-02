@@ -1931,36 +1931,6 @@ function copyTempDouble(ptr) {
    
 
   
-  function _usleep(useconds) {
-      // int usleep(useconds_t useconds);
-      // http://pubs.opengroup.org/onlinepubs/000095399/functions/usleep.html
-      // We're single-threaded, so use a busy loop. Super-ugly.
-      var msec = useconds / 1000;
-      if ((ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) && self['performance'] && self['performance']['now']) {
-        var start = self['performance']['now']();
-        while (self['performance']['now']() - start < msec) {
-          // Do nothing.
-        }
-      } else {
-        var start = Date.now();
-        while (Date.now() - start < msec) {
-          // Do nothing.
-        }
-      }
-      return 0;
-    }
-  Module["_usleep"] = _usleep;function _nanosleep(rqtp, rmtp) {
-      // int nanosleep(const struct timespec  *rqtp, struct timespec *rmtp);
-      var seconds = HEAP32[((rqtp)>>2)];
-      var nanoseconds = HEAP32[(((rqtp)+(4))>>2)];
-      if (rmtp !== 0) {
-        HEAP32[((rmtp)>>2)]=0;
-        HEAP32[(((rmtp)+(4))>>2)]=0;
-      }
-      return _usleep((seconds * 1e6) + (nanoseconds / 1000));
-    }
-
-  
   function ___setErrNo(value) {
       if (Module['___errno_location']) HEAP32[((Module['___errno_location']())>>2)]=value;
       else err('failed to set errno from JS');
@@ -2033,8 +2003,6 @@ var asmLibraryArg = {
   "_emscripten_get_heap_size": _emscripten_get_heap_size,
   "_emscripten_memcpy_big": _emscripten_memcpy_big,
   "_emscripten_resize_heap": _emscripten_resize_heap,
-  "_nanosleep": _nanosleep,
-  "_usleep": _usleep,
   "abortOnCannotGrowMemory": abortOnCannotGrowMemory,
   "flush_NO_FILESYSTEM": flush_NO_FILESYSTEM,
   "tempDoublePtr": tempDoublePtr,

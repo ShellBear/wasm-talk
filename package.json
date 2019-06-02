@@ -22,9 +22,9 @@
     "styled-components": "^4.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "make && react-scripts start",
+    "build": "make && react-scripts build",
+    "test": "make && react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

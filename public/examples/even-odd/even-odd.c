@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <unistd.h>
 
 int main()
 {
@@ -8,7 +7,6 @@ int main()
             printf("%d est pair\n", i);
         else
             printf("%d est impair\n", i);
-        sleep(1);
     }
 
     return 0;

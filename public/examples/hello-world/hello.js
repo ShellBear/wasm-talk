@@ -10,7 +10,7 @@
 // 3. pre-run appended it, var Module = {}; ..generated code..
 // 4. External script tag defines var Module.
 // We need to check if Module already exists (e.g. case 3 above).
-// Substitution will be replaced with actual code on later stage of the source,
+// Substitution will be replaced with actual code on later stage of the build,
 // this way Closure Compiler will not mangle it (e.g. case 4. above).
 // Note that if you want to run closure, and also to use Module
 // after the generated code, you will need to define   var Module = {};
@@ -502,7 +502,7 @@ var getTempRet0 = function() {
 }
 
 function getCompilerSetting(name) {
-  throw 'You must source with -s RETAIN_COMPILER_SETTINGS=1 for getCompilerSetting or emscripten_get_compiler_setting to work';
+  throw 'You must build with -s RETAIN_COMPILER_SETTINGS=1 for getCompilerSetting or emscripten_get_compiler_setting to work';
 }
 
 var Runtime = {
@@ -526,8 +526,8 @@ var GLOBAL_BASE = 1024;
 // Documentation for the public APIs defined in this file must be updated in:
 //    site/source/docs/api_reference/preamble.js.rst
 // A prebuilt local version of the documentation is available at:
-//    site/source/text/docs/api_reference/preamble.js.txt
-// You can also source docs locally as HTML or other formats in site/
+//    site/build/text/docs/api_reference/preamble.js.txt
+// You can also build docs locally as HTML or other formats in site/
 // An online HTML version (which may be of a different version of Emscripten)
 //    is up at http://kripken.github.io/emscripten-site/docs/api_reference/preamble.js.html
 
@@ -1136,7 +1136,7 @@ function writeAsciiToMemory(str, buffer, dontAddNull) {
 
 
 function demangle(func) {
-  warnOnce('warning: source with  -s DEMANGLE_SUPPORT=1  to link in libcxxabi demangling');
+  warnOnce('warning: build with  -s DEMANGLE_SUPPORT=1  to link in libcxxabi demangling');
   return func;
 }
 
@@ -1412,10 +1412,10 @@ function reSign(value, bits, ignore) {
 }
 
 
-assert(Math.imul, 'This browser does not support Math.imul(), source with LEGACY_VM_SUPPORT or POLYFILL_OLD_MATH_FUNCTIONS to add in a polyfill');
-assert(Math.fround, 'This browser does not support Math.fround(), source with LEGACY_VM_SUPPORT or POLYFILL_OLD_MATH_FUNCTIONS to add in a polyfill');
-assert(Math.clz32, 'This browser does not support Math.clz32(), source with LEGACY_VM_SUPPORT or POLYFILL_OLD_MATH_FUNCTIONS to add in a polyfill');
-assert(Math.trunc, 'This browser does not support Math.trunc(), source with LEGACY_VM_SUPPORT or POLYFILL_OLD_MATH_FUNCTIONS to add in a polyfill');
+assert(Math.imul, 'This browser does not support Math.imul(), build with LEGACY_VM_SUPPORT or POLYFILL_OLD_MATH_FUNCTIONS to add in a polyfill');
+assert(Math.fround, 'This browser does not support Math.fround(), build with LEGACY_VM_SUPPORT or POLYFILL_OLD_MATH_FUNCTIONS to add in a polyfill');
+assert(Math.clz32, 'This browser does not support Math.clz32(), build with LEGACY_VM_SUPPORT or POLYFILL_OLD_MATH_FUNCTIONS to add in a polyfill');
+assert(Math.trunc, 'This browser does not support Math.trunc(), build with LEGACY_VM_SUPPORT or POLYFILL_OLD_MATH_FUNCTIONS to add in a polyfill');
 
 var Math_abs = Math.abs;
 var Math_cos = Math.cos;
@@ -2392,7 +2392,7 @@ function checkUnflushedContent() {
   // Normally we would not even include flush() at all, but in ASSERTIONS
   // builds we do so just for this check, and here we see if there is any
   // content to flush, that is, we check if there would have been
-  // something a non-ASSERTIONS source would have not seen.
+  // something a non-ASSERTIONS build would have not seen.
   // How we flush the streams depends on whether we are in SYSCALLS_REQUIRE_FILESYSTEM=0
   // mode (which has its own special function for this; otherwise, all
   // the code is inside libc)
@@ -2428,7 +2428,7 @@ function exit(status, implicit) {
   if (Module['noExitRuntime']) {
     // if exit() was called, we may warn the user if the runtime isn't actually being shut down
     if (!implicit) {
-      err('exit(' + status + ') called, but EXIT_RUNTIME is not set, so halting execution but not exiting the runtime or preventing further async execution (source with EXIT_RUNTIME=1, if you want a true shutdown)');
+      err('exit(' + status + ') called, but EXIT_RUNTIME is not set, so halting execution but not exiting the runtime or preventing further async execution (build with EXIT_RUNTIME=1, if you want a true shutdown)');
     }
   } else {
 
