@@ -12,7 +12,7 @@ class TerminalSession extends React.Component {
     const sessionCode = source.split(/\r?\n/).map((line, i) => {
       if (line.startsWith('>')) {
         return (
-          <div style={{display: 'inline-flex', ...promptStyle}}>
+          <div key={i} style={{display: 'inline-flex', ...promptStyle}}>
             {prompt}
             <Typist cursor={{hideWhenDone: true, element: '█'}}>{line.slice(1)}</Typist>
             {document.dispatchEvent(new KeyboardEvent('keydown',{'key':'Shift'}))}
@@ -27,7 +27,7 @@ class TerminalSession extends React.Component {
         }
       }
 
-      return <div>{line}</div>;
+      return <div key={i}>{line}</div>;
     });
 
     return (

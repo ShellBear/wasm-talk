@@ -9,7 +9,7 @@ const slides = [].concat(
   Intro,
   Demo,
   Usage,
-  // End
+  End
 );
 
 export default slides.map((slide, i) => cloneElement(slide(), { key: i }));

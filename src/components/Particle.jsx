@@ -1,4 +1,3 @@
-import React from 'react';
 import { Image } from "spectacle";
 import styled, { keyframes } from "styled-components";
 
@@ -23,6 +22,7 @@ const Particle = styled(Image)`
   top: ${props => props.top};
   position: absolute;
   animation: ${cubeAnimation} ${props => props.speed} linear infinite;
+  z-index: -1;
 `;
 
 Particle.defaultProps = {

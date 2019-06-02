@@ -1,7 +1,6 @@
 import 'react-hot-loader/patch';
 import 'bulma/css/bulma.css';
-import Prism from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-clike';
+import './style.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
@@ -9,8 +8,6 @@ import { AppContainer } from 'react-hot-loader';
 import Redbox from 'redbox-react';
 
 import Presentation from './presentation';
-
-Prism.highlightAll();
 
 const CustomErrorReporter = ({ error }) => <Redbox error={error} />;
 

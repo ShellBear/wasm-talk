@@ -1,11 +1,10 @@
 import React from 'react';
-import { Slide, Heading, BlockQuote, Quote, Cite, Appear, Layout, Text, Anim, Fill } from 'spectacle';
+import { Slide, Heading, BlockQuote, Quote, Cite, Appear, Layout, Text, Anim, Code, Image } from 'spectacle';
 import preloader from 'spectacle/lib/utils/preloader';
 import styled, { keyframes } from 'styled-components';
 import { Box, Columns, Column } from 'bloomer';
-import Terminal from 'spectacle-terminal';
 
-import Command from '../../components/Command';
+import notes from './notes';
 import Particle from '../../components/Particle';
 
 import WapmLogo from './assets/wapm-logo.png';
@@ -25,6 +24,7 @@ const Usage = () => (
       </Quote>
       <Cite>webassembly.org</Cite>
     </BlockQuote>
+    {notes.one}
   </Slide>
 );
 
@@ -58,14 +58,60 @@ const SyledHeading = styled(Heading)`
   animation-delay: 0s, 5s;
 `;
 
+const StyledLogo = styled(Image)`
+  animation: ${textPopUpTop} 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both,
+             ${loopTextAnimation} 4s ease infinite alternate;
+  animation-delay: 0s, 5s;
+`;
+
 const Wasmer = () => {
-  const packages = ['sqlite', 'nginx', 'lua'];
+  const commands = [
+    '> wasmer run helloworld',
+    'Hello, WAPM & WASI!'
+  ];
 
   return (
-    <Slide transition={['slide', 'fade']}>
+    <Slide transition={['slide', 'fade']} transitionOut={['zoom']} style={{zIndex: 1}}>
       <Appear>
-        <SyledHeading textColor='white'>Wasmer</SyledHeading>
+        <div>
+          <SyledHeading textColor='white'>Wasmer</SyledHeading>
+        </div>
       </Appear>
+      <Appear>
+        <div style={{marginTop: '3rem'}}>
+          <Box style={{backgroundColor: 'black'}}>
+            <Columns isMultiline isGapless style={{textAlign: 'start'}}>
+              {commands.map((cmd, i) => (
+                <Column key={i} isSize='full'>
+                  <Code key={i} textColor='white' margin={0} padding={0}>{cmd}</Code>
+                </Column>
+              ))}
+            </Columns>
+          </Box>
+        </div>
+      </Appear>
+      <Particle src={WasmerLogo} width='7%' top='90%' speed='20s'/>
+      <Particle src={WasmerLogo} width='2%' top='10%' left=' 40%' speed='10s'/>
+      <Particle src={WasmerLogo} width='3%' top='20%' left='30%' speed='40s'/>
+      <Particle src={WasmerLogo} width='4%' top='40%' speed='50s'/>
+      <Particle src={WasmerLogo} width='10%' top='40%' left='70%' speed='140s'/>
+      {notes.two}
+    </Slide>
+  );
+};
+
+const Wapm = () => {
+  const packages = ['sqlite', 'nginx', 'lua'];
+  const commands = [
+    '> wapm install nginx',
+    '> wapm run nginx',
+    'Running Nginx on localhost:8080',
+    'Press Ctrl-C to stop...'
+  ];
+
+  return (
+    <Slide transition={['slide', 'fade']} transitionOut={['zoom']} style={{zIndex: 1}}>
+      <StyledLogo src={WapmLogo} width='30%'/>
       <Anim
         easing={'cubic'}
         transitionDuration={500}
@@ -73,7 +119,7 @@ const Wasmer = () => {
         toStyle={[{transform: 'translateY(20px) scale(1)', opacity: 1}]}
       >
         <div>
-          <Columns isCentered={true} isVCentered={true}>
+          <Columns isCentered isVCentered>
             {packages.map((pkg, i) => (
               <Column key={i}>
                 <Box>
@@ -88,13 +134,17 @@ const Wasmer = () => {
         </div>
       </Anim>
       <Appear>
-        <Fill>
-          <Terminal style={{zIndex: 10}} output={[
-            <Command output={'Running Nginx on localhost:8080\nPress Ctrl-C to stop...'}>
-              > wasmer run nginx.wasm
-            </Command>
-          ]}/>
-        </Fill>
+        <div style={{marginTop: '3rem'}}>
+          <Box style={{backgroundColor: 'black'}}>
+            <Columns isMultiline isGapless style={{textAlign: 'start'}}>
+              {commands.map((cmd, i) => (
+                <Column key={i} isSize='full'>
+                  <Code key={i} textColor='white' margin={0} padding={0}>{cmd}</Code>
+                </Column>
+              ))}
+            </Columns>
+          </Box>
+        </div>
       </Appear>
       <Particle src={WasmerLogo} width='7%' top='90%' speed='20s'/>
       <Particle src={WasmerLogo} width='2%' top='10%' left=' 40%' speed='10s'/>
@@ -107,5 +157,6 @@ const Wasmer = () => {
 
 export default [
   Usage,
-  Wasmer
+  Wasmer,
+  Wapm
 ];

@@ -25,7 +25,7 @@ const EndingSlide = () => (
     <Container>
       <Text textColor='shade-1' fit>The source code of this presentation is available at:</Text>
     </Container>
-    <Terminal title='want to get source code?' showFirstEntry={true} output={[
+    <Terminal title='want to get source code?' showFirstEntry output={[
       <Command output={(
         <Layout style={{alignItems: 'center'}}>
           <Loading type='bars' color='#fff' height={60} width={60} />

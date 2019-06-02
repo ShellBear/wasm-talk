@@ -25,6 +25,7 @@
 #### Demos
 - [Unity WebGL Player - AngryBots WebGL Demo](https://files.unity3d.com/jonas/AngryBots/)
 - [Qt Examples for WebAssembly](https://www.qt.io/qt-examples-for-webassembly)
+- [Emscripten Examples and Demos](https://github.com/emscripten-core/emscripten/wiki/Porting-Examples-and-Demos)
 
 #### Tools
 - [WebAssembly/wabt](https://github.com/WebAssembly/wabt)
