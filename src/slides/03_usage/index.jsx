@@ -1,12 +1,10 @@
+import { Box, Column, Columns } from 'bloomer';
 import React from 'react';
-import { Slide, Heading, BlockQuote, Quote, Cite, Appear, Layout, Text, Anim, Code, Image } from 'spectacle';
+import { Anim, Appear, BlockQuote, Cite, Code, Heading, Image, Layout, Quote, Slide, Text } from 'spectacle';
 import preloader from 'spectacle/lib/utils/preloader';
 import styled, { keyframes } from 'styled-components';
-import { Box, Columns, Column } from 'bloomer';
 
-import notes from './notes';
 import Particle from '../../components/Particle';
-
 import WapmLogo from './assets/wapm-logo.png';
 import WasmerLogo from './assets/wasmer-logo.png';
 
@@ -24,7 +22,6 @@ const Usage = () => (
       </Quote>
       <Cite>webassembly.org</Cite>
     </BlockQuote>
-    {notes.one}
   </Slide>
 );
 
@@ -46,7 +43,7 @@ const loopTextAnimation = keyframes`
   from {
     transform: translateY(-50px);
   }
-  
+
   to {
     transform: translateY(-30px);
   }
@@ -66,8 +63,8 @@ const StyledLogo = styled(Image)`
 
 const Wasmer = () => {
   const commands = [
-    '> wasmer run helloworld',
-    'Hello, WAPM & WASI!'
+    '> wasmer run helloworld.wasm',
+    'Hello, world!'
   ];
 
   return (
@@ -90,12 +87,11 @@ const Wasmer = () => {
           </Box>
         </div>
       </Appear>
-      <Particle src={WasmerLogo} width='7%' top='90%' speed='20s'/>
-      <Particle src={WasmerLogo} width='2%' top='10%' left=' 40%' speed='10s'/>
-      <Particle src={WasmerLogo} width='3%' top='20%' left='30%' speed='40s'/>
-      <Particle src={WasmerLogo} width='4%' top='40%' speed='50s'/>
+      <Particle src={WasmerLogo} width='7%' top='90%' speed='20s' />
+      <Particle src={WasmerLogo} width='2%' top='10%' left=' 40%' speed='10s' />
+      <Particle src={WasmerLogo} width='3%' top='20%' left='30%' speed='40s' />
+      <Particle src={WasmerLogo} width='4%' top='40%' speed='50s' />
       <Particle src={WasmerLogo} width='10%' top='40%' left='70%' speed='140s'/>
-      {notes.two}
     </Slide>
   );
 };

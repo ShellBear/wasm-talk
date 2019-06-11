@@ -1,20 +1,18 @@
 import 'prismjs/components/prism-c';
 import 'prismjs/themes/prism-solarizedlight.css';
+
+import { Column, Columns } from 'bloomer';
 import React from 'react';
-import { Slide, CodePane, Image, Text, Heading, Layout } from 'spectacle';
-import preloader from 'spectacle/lib/utils/preloader';
-import Terminal from 'spectacle-terminal';
-import Command from '../../components/Command';
-import { Columns, Column } from 'bloomer';
+import { CodePane, Heading, Image, Slide, Text } from 'spectacle';
 import CodeSlide from 'spectacle-code-slide';
+import Terminal from 'spectacle-terminal';
+import preloader from 'spectacle/lib/utils/preloader';
 
+import Command from '../../components/Command';
 import Particle from '../../components/Particle';
-
 import QTDesktop from './assets/qt-desktop.gif';
-import QTWasm from './assets/qt-webassembly.gif';
 import QTLogo from './assets/qt-logo.png';
-
-import notes from './notes';
+import QTWasm from './assets/qt-webassembly.gif';
 
 preloader({
   QTDesktop,
@@ -72,7 +70,6 @@ const QTDemo = () => (
 
 const HelloWorldCode = () => (
   <Slide bgColor='quintary' controlColor='transparent'>
-    {notes.one}
     <Terminal
       title='wasm-talk'
       output={BuildLog}

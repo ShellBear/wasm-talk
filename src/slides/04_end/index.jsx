@@ -1,8 +1,8 @@
 import React from 'react';
-import { Slide, Heading, Text, Code, Layout } from 'spectacle';
-import styled from 'styled-components';
-import Terminal from 'spectacle-terminal';
 import Loading from 'react-loading';
+import { Code, Heading, Layout, Slide, Text } from 'spectacle';
+import Terminal from 'spectacle-terminal';
+import styled from 'styled-components';
 
 import Command from '../../components/Command';
 
@@ -13,11 +13,19 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   justify-content: space-between;
-  
+
   > * {
     padding: 5rem;
   }
 `;
+
+const PresentationSlide = () => (
+  <Slide>
+    <Heading textColor='pink' fit>Dessert, un projet à suivre...</Heading>
+    <Heading textColor='shade-1' style={{marginTop: '3rem', marginBottom: '3rem'}}>EIP Epitech</Heading>
+    <Code textColor='senary'>https://github.com/dessert-wasm</Code>
+  </Slide>
+);
 
 const EndingSlide = () => (
   <Slide bgColor={'secondary'}>
@@ -39,5 +47,6 @@ const EndingSlide = () => (
 );
 
 export default [
+  PresentationSlide,
   EndingSlide
 ];

@@ -1,8 +1,9 @@
 import 'normalize.css';
+
 import React from 'react';
 import { Deck } from 'spectacle';
-
 import createTheme from 'spectacle/lib/themes/default';
+
 import Slides from './slides';
 
 const theme = createTheme(
@@ -21,7 +22,9 @@ const theme = createTheme(
     'blue': '#6E87FF',
     'green': '#5BECC0',
     'yellow': '#FFF7D6',
-    'pink': '#EFB6D7'
+    'pink': '#EFB6D7',
+    'purple': '#654ff0',
+    'red': '#f93e3e'
   },
   {
     'primary': 'Montserrat',
@@ -33,7 +36,7 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck
-        transition={['zoom', 'slide']}
+        transition={['fade']}
         transitionDuration={500}
         theme={theme}
         progress="bar"
